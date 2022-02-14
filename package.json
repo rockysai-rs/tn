@@ -15,7 +15,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "helmet": "^4.6.0",
-    "mongoose": "^6.0.7"
+    "joi": "^17.6.0",
+    "mongoose": "^6.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.0",
