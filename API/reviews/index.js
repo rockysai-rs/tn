@@ -7,9 +7,9 @@ const Router = express.Router();
 /*
 Route     /NEW
 Des       ADD new review
-Params   none
-Access   Public
-Method   Post
+Params    none
+Access    Public
+Method    Post
 */
 
 Router.post("/new",async(req,res)=>{

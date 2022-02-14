@@ -16,7 +16,9 @@
     "express": "^4.17.2",
     "helmet": "^4.6.0",
     "joi": "^17.6.0",
-    "mongoose": "^6.2.1"
+    "mongoose": "^6.2.1",
+    "passport": "^0.5.2",
+    "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.0",
