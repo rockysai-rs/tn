@@ -1,6 +1,8 @@
 import express from "express";
 
 import {ShopModel} from "../..database/allModels";
+import {ValidateShopCity,ValidateShopSearchString} from "../../validation/shop";
+import {ValidateShopId} from "../../validation/provision";
 
 const Router = express.Router();
 
@@ -14,6 +16,7 @@ Method   GET
 
 Router.get("/",async(req,res)=>{
   try {
+      await ValidateShopCity(req.query);
       const {city} = req.query;
       const shops = await ShopModel.find({city});
       returm res.json({shops});
@@ -32,6 +35,7 @@ Method   GET
 
 Router.get("/:-id",async(req,res)=>{
   try {
+      await ValidateShopId(req.params);
       const {_id} = req.params;
       const shop = await ShopModel.findone({_id});
       returm res.json({shops});
@@ -50,6 +54,7 @@ Method   GET
 
 Router.get("/search",async(req,res)=>{
   try {
+      await ValidateShopSearchString(req.body);
       const {searchString} = req.body;
       const shops = await ShopModel.find({
         name:{$regex: searchString, $options: "i"}

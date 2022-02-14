@@ -1,6 +1,7 @@
 import express from "express";
 
 import {ProvisionModel} from "../..database/allModels";
+import {ValidateShopId,ValidateCategory} from "../..validation/provision";
 
 const Router = express.Router();
 
@@ -14,6 +15,7 @@ Method   GET
 
 Router.get("/:_id",async(req,res)=>{
   try {
+      await ValidateShopId(req.params);
       const {_id} = req.params;
       const parameters = await ProvisionModel.find({shop: _id});
       returm res.json({provisions});
@@ -27,11 +29,12 @@ Route     /
 Des       Get all the provision based on shop
 Params   category
 Access   Public
-Method   GET 
+Method   GET
 */
 
 Router.get("/r/:category",async(req,res)=> {
   try {
+    await ValidateCategory(req.params);
     const {category}= req.params;
     const provisions = await ProvisionModel.find({
       category: {$regex: category,$options:"i"}
