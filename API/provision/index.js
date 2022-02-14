@@ -27,7 +27,7 @@ Route     /
 Des       Get all the provision based on shop
 Params   category
 Access   Public
-Method   GET
+Method   GET 
 */
 
 Router.get("/r/:category",async(req,res)=> {
